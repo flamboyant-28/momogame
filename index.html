@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>摸摸小Q~</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff0f6;
+        font-family: "微软雅黑", sans-serif;
+        user-select: none;
+    }
+
+    .wrap {
+        text-align: center;
+    }
+
+    #char {
+        width: 260px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    #char:active {
+        transform: scale(0.95);
+    }
+
+    .tip {
+        margin-top: 18px;
+        color: #ff85b3;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+    <img id="char" src="char1.png" alt="Q版角色">
+    <div class="tip">🥰 轻轻点一点，摸摸头吧～</div>
+</div>
+
+<script>
+    const char = document.getElementById("char");
+    const tip = document.querySelector(".tip");
+
+    const images = [
+        "char1.png",
+        "char2.png",
+        "char3.png",
+        "char4.png"
+    ];
+
+    const touches = [
+        "唔……好舒服呢～",
+        "嘿嘿，再摸一下嘛…",
+        "被摸头的感觉真好～",
+        "最喜欢你啦 💗"
+    ];
+
+    let index = 0;
+
+    char.addEventListener("click", () => {
+        if (index < images.length - 1) {
+            index++;
+            char.src = images[index];
+        }
+        tip.innerText = touches[index];
+    });
+</script>
+
+</body>
+</html>
